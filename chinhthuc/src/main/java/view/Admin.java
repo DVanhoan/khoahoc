@@ -5,6 +5,12 @@
 
 package view;
 
+import java.awt.Color;
+import java.sql.SQLException;
+import javax.swing.ImageIcon;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 /**
  *
  * @author HOAN
@@ -12,9 +18,40 @@ package view;
 public class Admin extends javax.swing.JFrame {
 
     /** Creates new form Admin */
-    public Admin() {
-        initComponents();
+    Color DefaultColor, ClickedColor;
+    private Account currentAcc;
+
+
+    public Account getCurrentAcc() {
+        return currentAcc;
     }
+
+
+    public Admin(Account t) throws UnsupportedLookAndFeelException, SQLException {
+        ImageIcon logo = new ImageIcon(getClass().getResource("/icon/logo.png"));
+        setIconImage(logo.getImage());
+        UIManager.setLookAndFeel(new FlatLightLaf());
+        UIManager.put("Table.showVerticalLines", true);
+        UIManager.put("Table.showHorizontalLines", true);
+        initComponents();
+        setLocationRelativeTo(null);
+        this.currentAcc = t;
+        CourseForm pf = new CourseForm();
+        MainContent.add(pf).setVisible(true);
+        DefaultColor = new Color(89, 168, 105);
+        ClickedColor = new Color(26, 188, 156);
+
+
+        NavbarMenu.setBackground(DefaultColor);
+        KhoaHoc.setBackground(ClickedColor);
+        DangKy.setBackground(DefaultColor);
+        BaiHoc.setBackground(DefaultColor);
+        BinhLuan.setBackground(DefaultColor);
+        TaiKhoan.setBackground(DefaultColor);
+        ThongKe.setBackground(DefaultColor);
+    }
+    
+    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -25,21 +62,513 @@ public class Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        NavbarMenu = new javax.swing.JPanel();
+        KhoaHoc = new javax.swing.JPanel();
+        lblKhoaHoc = new javax.swing.JLabel();
+        DangKy = new javax.swing.JPanel();
+        lbldangki = new javax.swing.JLabel();
+        DangXuat = new javax.swing.JPanel();
+        lblDangXuat = new javax.swing.JLabel();
+        BaiHoc = new javax.swing.JPanel();
+        lblBaiHoc = new javax.swing.JLabel();
+        NameUser = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        BinhLuan = new javax.swing.JPanel();
+        lblBinhLuan = new javax.swing.JLabel();
+        TaiKhoan = new javax.swing.JPanel();
+        lblTaiKhoan = new javax.swing.JLabel();
+        ThongKe = new javax.swing.JPanel();
+        lblThongKe = new javax.swing.JLabel();
+        DoiMk = new javax.swing.JPanel();
+        lblDoiThongTin = new javax.swing.JLabel();
+        MainContent = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(1420, 750));
+
+        NavbarMenu.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Green"));
+        NavbarMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        KhoaHoc.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Green"));
+        KhoaHoc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        KhoaHoc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KhoaHocMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                KhoaHocMousePressed(evt);
+            }
+        });
+
+        lblKhoaHoc.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
+        lblKhoaHoc.setForeground(new java.awt.Color(255, 255, 255));
+        lblKhoaHoc.setText("KHÓA HỌC");
+        lblKhoaHoc.setToolTipText("");
+
+        javax.swing.GroupLayout KhoaHocLayout = new javax.swing.GroupLayout(KhoaHoc);
+        KhoaHoc.setLayout(KhoaHocLayout);
+        KhoaHocLayout.setHorizontalGroup(
+            KhoaHocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(KhoaHocLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(lblKhoaHoc)
+                .addContainerGap(104, Short.MAX_VALUE))
+        );
+        KhoaHocLayout.setVerticalGroup(
+            KhoaHocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, KhoaHocLayout.createSequentialGroup()
+                .addContainerGap(10, Short.MAX_VALUE)
+                .addComponent(lblKhoaHoc)
+                .addContainerGap())
+        );
+
+        NavbarMenu.add(KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 240, 40));
+
+        DangKy.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Green"));
+        DangKy.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        DangKy.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DangKyMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                DangKyMousePressed(evt);
+            }
+        });
+
+        lbldangki.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
+        lbldangki.setForeground(new java.awt.Color(255, 255, 255));
+        lbldangki.setText("ĐĂNG KÍ");
+
+        javax.swing.GroupLayout DangKyLayout = new javax.swing.GroupLayout(DangKy);
+        DangKy.setLayout(DangKyLayout);
+        DangKyLayout.setHorizontalGroup(
+            DangKyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DangKyLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(lbldangki)
+                .addContainerGap(133, Short.MAX_VALUE))
+        );
+        DangKyLayout.setVerticalGroup(
+            DangKyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DangKyLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbldangki)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        NavbarMenu.add(DangKy, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 240, 40));
+
+        DangXuat.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Green"));
+        DangXuat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DangXuatMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                DangXuatMousePressed(evt);
+            }
+        });
+
+        lblDangXuat.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
+        lblDangXuat.setForeground(new java.awt.Color(255, 255, 255));
+        lblDangXuat.setText("ĐĂNG XUẤT");
+
+        javax.swing.GroupLayout DangXuatLayout = new javax.swing.GroupLayout(DangXuat);
+        DangXuat.setLayout(DangXuatLayout);
+        DangXuatLayout.setHorizontalGroup(
+            DangXuatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DangXuatLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(lblDangXuat)
+                .addContainerGap(100, Short.MAX_VALUE))
+        );
+        DangXuatLayout.setVerticalGroup(
+            DangXuatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DangXuatLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblDangXuat)
+                .addContainerGap(9, Short.MAX_VALUE))
+        );
+
+        NavbarMenu.add(DangXuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 690, 240, -1));
+
+        BaiHoc.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Green"));
+        BaiHoc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BaiHoc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BaiHocMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                BaiHocMousePressed(evt);
+            }
+        });
+
+        lblBaiHoc.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
+        lblBaiHoc.setForeground(new java.awt.Color(255, 255, 255));
+        lblBaiHoc.setText("BÀI HỌC");
+
+        javax.swing.GroupLayout BaiHocLayout = new javax.swing.GroupLayout(BaiHoc);
+        BaiHoc.setLayout(BaiHocLayout);
+        BaiHocLayout.setHorizontalGroup(
+            BaiHocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BaiHocLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(lblBaiHoc)
+                .addContainerGap(131, Short.MAX_VALUE))
+        );
+        BaiHocLayout.setVerticalGroup(
+            BaiHocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BaiHocLayout.createSequentialGroup()
+                .addContainerGap(10, Short.MAX_VALUE)
+                .addComponent(lblBaiHoc)
+                .addContainerGap())
+        );
+
+        NavbarMenu.add(BaiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 240, 40));
+
+        NameUser.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
+        NameUser.setForeground(new java.awt.Color(255, 255, 255));
+        NameUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        NameUser.setText("ADMIN");
+        NameUser.setToolTipText("");
+        NavbarMenu.add(NameUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 160, -1));
+
+        jLabel8.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("HI !");
+        NavbarMenu.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 40, -1));
+
+        BinhLuan.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Green"));
+        BinhLuan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BinhLuan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BinhLuanMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                BinhLuanMousePressed(evt);
+            }
+        });
+
+        lblBinhLuan.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
+        lblBinhLuan.setForeground(new java.awt.Color(255, 255, 255));
+        lblBinhLuan.setText("BÌNH LUẬN");
+
+        javax.swing.GroupLayout BinhLuanLayout = new javax.swing.GroupLayout(BinhLuan);
+        BinhLuan.setLayout(BinhLuanLayout);
+        BinhLuanLayout.setHorizontalGroup(
+            BinhLuanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BinhLuanLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lblBinhLuan, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(60, Short.MAX_VALUE))
+        );
+        BinhLuanLayout.setVerticalGroup(
+            BinhLuanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BinhLuanLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblBinhLuan)
+                .addContainerGap(9, Short.MAX_VALUE))
+        );
+
+        NavbarMenu.add(BinhLuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 240, -1));
+
+        TaiKhoan.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Green"));
+        TaiKhoan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TaiKhoan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TaiKhoanMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TaiKhoanMousePressed(evt);
+            }
+        });
+
+        lblTaiKhoan.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
+        lblTaiKhoan.setForeground(new java.awt.Color(255, 255, 255));
+        lblTaiKhoan.setText("TÀI KHOẢN");
+
+        javax.swing.GroupLayout TaiKhoanLayout = new javax.swing.GroupLayout(TaiKhoan);
+        TaiKhoan.setLayout(TaiKhoanLayout);
+        TaiKhoanLayout.setHorizontalGroup(
+            TaiKhoanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TaiKhoanLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lblTaiKhoan)
+                .addContainerGap(107, Short.MAX_VALUE))
+        );
+        TaiKhoanLayout.setVerticalGroup(
+            TaiKhoanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TaiKhoanLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTaiKhoan)
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+
+        NavbarMenu.add(TaiKhoan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 240, 40));
+
+        ThongKe.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Green"));
+        ThongKe.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ThongKe.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ThongKeMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ThongKeMousePressed(evt);
+            }
+        });
+
+        lblThongKe.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
+        lblThongKe.setForeground(new java.awt.Color(255, 255, 255));
+        lblThongKe.setText("THỐNG KÊ");
+
+        javax.swing.GroupLayout ThongKeLayout = new javax.swing.GroupLayout(ThongKe);
+        ThongKe.setLayout(ThongKeLayout);
+        ThongKeLayout.setHorizontalGroup(
+            ThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ThongKeLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lblThongKe)
+                .addContainerGap(112, Short.MAX_VALUE))
+        );
+        ThongKeLayout.setVerticalGroup(
+            ThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ThongKeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblThongKe)
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+
+        NavbarMenu.add(ThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 240, 40));
+
+        DoiMk.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Green"));
+        DoiMk.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        DoiMk.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DoiMkMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                DoiMkMousePressed(evt);
+            }
+        });
+
+        lblDoiThongTin.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
+        lblDoiThongTin.setForeground(new java.awt.Color(255, 255, 255));
+        lblDoiThongTin.setText("ĐỔI THÔNG TIN");
+
+        javax.swing.GroupLayout DoiMkLayout = new javax.swing.GroupLayout(DoiMk);
+        DoiMk.setLayout(DoiMkLayout);
+        DoiMkLayout.setHorizontalGroup(
+            DoiMkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DoiMkLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lblDoiThongTin, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        DoiMkLayout.setVerticalGroup(
+            DoiMkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DoiMkLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblDoiThongTin)
+                .addContainerGap(9, Short.MAX_VALUE))
+        );
+
+        NavbarMenu.add(DoiMk, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 640, 240, -1));
+
+        MainContent.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout MainContentLayout = new javax.swing.GroupLayout(MainContent);
+        MainContent.setLayout(MainContentLayout);
+        MainContentLayout.setHorizontalGroup(
+            MainContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1180, Short.MAX_VALUE)
+        );
+        MainContentLayout.setVerticalGroup(
+            MainContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 750, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(NavbarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(MainContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(NavbarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(MainContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void KhoaHocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KhoaHocMouseClicked
+        try{
+            KhoaHoc.setBackground(ClickedColor);
+            DangKy.setBackground(DefaultColor);
+            BaiHoc.setBackground(DefaultColor);
+            BinhLuan.setBackground(DefaultColor);
+            TaiKhoan.setBackground(DefaultColor);
+            ThongKe.setBackground(DefaultColor);
+
+            // Clear and reload the content panel
+            MainContent.removeAll();
+            CourseForm p = new CourseForm();
+            MainContent.add(p).setVisible(true);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_KhoaHocMouseClicked
+
+    private void KhoaHocMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KhoaHocMousePressed
+        // TODO add your handling code here:
+        KhoaHoc.setBackground(ClickedColor);
+        DangKy.setBackground(DefaultColor);
+        BaiHoc.setBackground(DefaultColor);
+        BinhLuan.setBackground(DefaultColor);
+        TaiKhoan.setBackground(DefaultColor);
+        ThongKe.setBackground(DefaultColor);
+    }//GEN-LAST:event_KhoaHocMousePressed
+
+    private void DangKyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DangKyMouseClicked
+        // TODO add your handling code here:
+        try{
+            EnrollmentForm ef = new EnrollmentForm();
+            MainContent.removeAll();
+            MainContent.add(ef).setVisible(true);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_DangKyMouseClicked
+
+    private void DangKyMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DangKyMousePressed
+        // TODO add your handling code here:
+        KhoaHoc.setBackground(DefaultColor);
+        DangKy.setBackground(ClickedColor);
+        BaiHoc.setBackground(DefaultColor);
+        BinhLuan.setBackground(DefaultColor);
+        TaiKhoan.setBackground(DefaultColor);
+        ThongKe.setBackground(DefaultColor);
+    }//GEN-LAST:event_DangKyMousePressed
+
+    private void DangXuatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DangXuatMouseClicked
+        // TODO add your handling code here:
+        int relly = JOptionPane.showConfirmDialog(
+            null,
+            "Bạn muốn thoát khỏi chương trình ?",
+            "Xác nhận",
+            JOptionPane.YES_NO_OPTION);
+        if (relly == JOptionPane.YES_OPTION) {
+            this.dispose();
+            Login a = new Login();
+            a.setVisible(true);
+        } else {
+            DangXuat.setBackground(DefaultColor);
+        }
+    }//GEN-LAST:event_DangXuatMouseClicked
+
+    private void DangXuatMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DangXuatMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DangXuatMousePressed
+
+    private void BaiHocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BaiHocMouseClicked
+        // TODO add your handling code here:
+        try{
+            LessonForm af = new LessonForm();
+            MainContent.removeAll();
+            MainContent.add(af).setVisible(true);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_BaiHocMouseClicked
+
+    private void BaiHocMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BaiHocMousePressed
+        // TODO add your handling code here:
+        KhoaHoc.setBackground(DefaultColor);
+        DangKy.setBackground(DefaultColor);
+        BaiHoc.setBackground(ClickedColor);
+        BinhLuan.setBackground(DefaultColor);
+        TaiKhoan.setBackground(DefaultColor);
+        ThongKe.setBackground(DefaultColor);
+    }//GEN-LAST:event_BaiHocMousePressed
+
+    private void BinhLuanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BinhLuanMouseClicked
+        // TODO add your handling code here:
+        try{
+            CommentForm cf = new CommentForm();
+            MainContent.removeAll();
+            MainContent.add(cf).setVisible(true);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_BinhLuanMouseClicked
+
+    private void BinhLuanMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BinhLuanMousePressed
+        // TODO add your handling code here:
+        KhoaHoc.setBackground(DefaultColor);
+        DangKy.setBackground(DefaultColor);
+        BaiHoc.setBackground(DefaultColor);
+        BinhLuan.setBackground(ClickedColor);
+        TaiKhoan.setBackground(DefaultColor);
+        ThongKe.setBackground(DefaultColor);
+    }//GEN-LAST:event_BinhLuanMousePressed
+
+    private void TaiKhoanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TaiKhoanMouseClicked
+        // TODO add your handling code here:
+        try{
+            AccountForm ac = new AccountForm();
+            MainContent.removeAll();
+            MainContent.add(ac).setVisible(true);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_TaiKhoanMouseClicked
+
+    private void TaiKhoanMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TaiKhoanMousePressed
+        // TODO add your handling code here:
+        KhoaHoc.setBackground(DefaultColor);
+        DangKy.setBackground(DefaultColor);
+        BaiHoc.setBackground(DefaultColor);
+        BinhLuan.setBackground(DefaultColor);
+        TaiKhoan.setBackground(ClickedColor);
+        ThongKe.setBackground(DefaultColor);
+    }//GEN-LAST:event_TaiKhoanMousePressed
+
+    private void ThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThongKeMouseClicked
+        // TODO add your handling code here:
+        ThongKeForm tk = new ThongKeForm();
+        MainContent.removeAll();
+        MainContent.add(tk).setVisible(true);
+    }//GEN-LAST:event_ThongKeMouseClicked
+
+    private void ThongKeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThongKeMousePressed
+        // TODO add your handling code here:
+        ThongKe.setBackground(ClickedColor);
+        KhoaHoc.setBackground(DefaultColor);
+        DangKy.setBackground(DefaultColor);
+        BaiHoc.setBackground(DefaultColor);
+        BinhLuan.setBackground(DefaultColor);
+        TaiKhoan.setBackground(DefaultColor);
+    }//GEN-LAST:event_ThongKeMousePressed
+
+    private void DoiMkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DoiMkMouseClicked
+        // TODO add your handling code here:
+        ChangePassword cp = new ChangePassword(this, rootPaneCheckingEnabled, getCurrentAcc());
+        cp.setVisible(true);
+    }//GEN-LAST:event_DoiMkMouseClicked
+
+    private void DoiMkMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DoiMkMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DoiMkMousePressed
 
     /**
      * @param args the command line arguments
@@ -77,6 +606,26 @@ public class Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BaiHoc;
+    private javax.swing.JPanel BinhLuan;
+    private javax.swing.JPanel DangKy;
+    private javax.swing.JPanel DangXuat;
+    private javax.swing.JPanel DoiMk;
+    private javax.swing.JPanel KhoaHoc;
+    private javax.swing.JPanel MainContent;
+    private javax.swing.JLabel NameUser;
+    private javax.swing.JPanel NavbarMenu;
+    private javax.swing.JPanel TaiKhoan;
+    private javax.swing.JPanel ThongKe;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel lblBaiHoc;
+    private javax.swing.JLabel lblBinhLuan;
+    private javax.swing.JLabel lblDangXuat;
+    private javax.swing.JLabel lblDoiThongTin;
+    private javax.swing.JLabel lblKhoaHoc;
+    private javax.swing.JLabel lblTaiKhoan;
+    private javax.swing.JLabel lblThongKe;
+    private javax.swing.JLabel lbldangki;
     // End of variables declaration//GEN-END:variables
 
 }
