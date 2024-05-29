@@ -9,5 +9,8 @@
         <module name="chinhthuc" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="KhoaHoc" target="20" />
+    </bytecodeTargetLevel>
   </component>
 </project>

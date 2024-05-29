@@ -348,7 +348,6 @@ public class Login extends javax.swing.JFrame {
             AccountDAO dao = new AccountDAO();
             Account acc = dao.find(usercheck);
             System.out.println("User found: " + (acc != null));
-            System.out.println(acc);
             if (acc == null) {
                 JOptionPane.showMessageDialog(this, "Tài khoản không tồn tại trên hệ thống !", "Cảnh báo !", JOptionPane.WARNING_MESSAGE);
             } else {
