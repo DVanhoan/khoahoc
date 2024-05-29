@@ -4,7 +4,10 @@
  */
 package view;
 
+import dao.AccountDAO;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+import model.Account;
 
 /**
  *
@@ -87,7 +90,7 @@ public class Register extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 260, 0));
 
         jLabel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 194, 260, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 186, 260, -1));
 
         txtemail.setBackground(new java.awt.Color(13, 39, 51));
         txtemail.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
@@ -118,7 +121,9 @@ public class Register extends javax.swing.JFrame {
         jLabel8.setText("Email");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 130, 40));
 
+        jComboBox1.setBackground(new java.awt.Color(13, 39, 51));
         jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "teacher", "student" }));
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, 270, 40));
 

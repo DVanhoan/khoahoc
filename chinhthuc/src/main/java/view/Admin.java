@@ -5,11 +5,14 @@
 
 package view;
 
+import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
 import java.sql.SQLException;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import model.Account;
 
 /**
  *
@@ -25,6 +28,8 @@ public class Admin extends javax.swing.JFrame {
     public Account getCurrentAcc() {
         return currentAcc;
     }
+    
+    
 
 
     public Admin(Account t) throws UnsupportedLookAndFeelException, SQLException {
@@ -600,7 +605,7 @@ public class Admin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Admin().setVisible(true);
+             
             }
         });
     }
