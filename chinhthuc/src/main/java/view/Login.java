@@ -38,8 +38,8 @@ public class Login extends javax.swing.JFrame {
         panClick = new Color(89, 168, 120);
         panEnter = new Color(89, 168, 120);
         JPaneSignUp.setBackground(panDefualt);
-        ImageIcon logo = new ImageIcon(getClass().getResource("/icon/logo.png"));
-        setIconImage(logo.getImage());
+//        ImageIcon logo = new ImageIcon(getClass().getResource("/icon/logo.png"));
+//        setIconImage(logo.getImage());
     }
 
     /**
@@ -87,7 +87,6 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setText("ĐĂNG NHẬP");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 410, 70));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/user.png"))); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 580));
